@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DogsService } from 'src/app/services/dogs.service';
+import { Dog } from 'src/app/classes/dog';
 
 @Component({
   selector: 'app-dog',
@@ -8,9 +10,17 @@ import { Router } from '@angular/router';
 })
 export class DogComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  public dog: Dog[];
+  
+  constructor(
+    private router: Router,
+    private dogsService: DogsService
+    ) { }
 
   ngOnInit(): void {
+    this.dogsService.getDogs().subscribe(data => {
+      this.dog = data;
+    });
   }
   
   public greenDogsPage() {
