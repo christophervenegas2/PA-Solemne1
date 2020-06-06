@@ -24,7 +24,7 @@ export class GreenDogComponent implements OnInit {
   }
 
   public catPage() {
-    this.router.navigate(['app-cat']);
+    this.router.navigate(['app-food']);
   }
 }
 
