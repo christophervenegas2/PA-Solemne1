@@ -9,8 +9,6 @@ import { stringify } from 'querystring';
 @Injectable()
 export class DogsService {
 
-  public comidas: [];
-
   constructor(
     private http: HttpClient
   ) { }
@@ -31,6 +29,22 @@ export class DogsService {
         const dogs = data.map(value => new Dog(value));
         const filteredDogs = dogs.filter(data => data.color === 'Green');
         observe.next(filteredDogs);
+        observe.complete();
+      });
+    });
+  }
+
+  public getFood(): Observable<Food[]> {
+    return new Observable<Food[]>(observe => {
+      this.http.get('../../assets/dogs.json').subscribe((data: any[]) => {
+        const dogs = data.map(value => new Dog(value));
+        let array = [];
+        for (let dog of dogs) {
+          for (let food of dog.food) {
+            array.push(food);
+          }
+        }
+        observe.next(array);
         observe.complete();
       });
     });
