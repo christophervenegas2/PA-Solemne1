@@ -23,7 +23,7 @@ export class GreenDogComponent implements OnInit {
     });
   }
 
-  public catPage() {
+  public foodPage() {
     this.router.navigate(['app-food']);
   }
 }
