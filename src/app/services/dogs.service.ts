@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Dog } from '../classes/dog';
 import {Observable, observable} from 'rxjs';
 import { Food } from '../classes/food';
-import { stringify } from 'querystring';
 
 
 @Injectable()
@@ -39,14 +38,24 @@ export class DogsService {
       this.http.get('../../assets/dogs.json').subscribe((data: any[]) => {
         const dogs = data.map(value => new Dog(value));
         let array = [];
+        let filteredArray = [];
         for (let dog of dogs) {
           for (let food of dog.food) {
             array.push(food);
           }
         }
-        observe.next(array);
+        filteredArray = this.arrayFilter(array, it => it.id);
+        observe.next(filteredArray);
         observe.complete();
       });
     });
+  }
+
+  public arrayFilter(data, key) {
+    return [
+      ...new Map(
+        data.map(x => [key(x), x])
+      ).values()
+    ]
   }
 }
