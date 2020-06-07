@@ -10,16 +10,16 @@ import { Dog } from 'src/app/classes/dog';
 })
 export class DogComponent implements OnInit {
 
-  public dog: Dog[];
+  public dogs: Dog[];
   
   constructor(
     private router: Router,
     private dogsService: DogsService
     ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.dogsService.getDogs().subscribe(data => {
-      this.dog = data;
+      this.dogs = data;
     });
   }
   

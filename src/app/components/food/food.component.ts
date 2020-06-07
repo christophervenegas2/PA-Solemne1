@@ -9,7 +9,7 @@ import { Food } from 'src/app/classes/food';
   styleUrls: ['./food.component.scss']
 })
 export class FoodComponent implements OnInit {
-  public food: Food[];
+  public foods: Food[];
 
   constructor(
     private router: Router,
@@ -18,7 +18,7 @@ export class FoodComponent implements OnInit {
 
   public ngOnInit(): void {
     this.dogsService.getFood().subscribe(data => {
-      this.food = data.map(value => new Food(value));
+      this.foods = data.map(value => new Food(value));
     });
   }
 

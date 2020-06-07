@@ -17,9 +17,9 @@ export class GreenDogComponent implements OnInit {
     private dogsService: DogsService
     ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.dogsService.getGreenDogs().subscribe(data => {
-       this.greenDogs = data; // <- *ngFor='let dog of greenDogs'
+    this.greenDogs = data; 
     });
   }
 

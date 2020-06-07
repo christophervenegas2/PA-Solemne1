@@ -10,16 +10,16 @@ import { Cat } from 'src/app/classes/cat';
 })
 export class CatComponent implements OnInit {
 
-  public cat: Cat[];
+  public cats: Cat[];
 
   constructor(
     private router: Router,
     private catsService: CatsService
     ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.catsService.getDogs().subscribe(data => {
-      this.cat = data;
+    this.cats = data;
     });
   }
   
