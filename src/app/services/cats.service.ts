@@ -11,9 +11,9 @@ export class CatsService {
     private http: HttpClient
   ) { }
 
-  public getDogs(): Observable<Cat[]> {
+  public getCats(): Observable<Cat[]> {
     return new Observable<Cat[]>(observe => {
-      this.http.get('../../assets/dogs.json').subscribe((data: any[]) => {
+      this.http.get('../../assets/cats.json').subscribe((data: any[]) => {
         const cats = data.map(value => new Cat(value));
         observe.next(cats);
         observe.complete();
