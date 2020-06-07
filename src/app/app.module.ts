@@ -8,6 +8,9 @@ import { CatComponent } from './components/cat/cat.component';
 import { DogComponent } from './components/dog/dog.component';
 import { FoodComponent } from './components/food/food.component';
 import { GreenDogComponent } from './components/green-dog/green-dog.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CatsService } from './services/cats.service';
+import { DogsService } from './services/dogs.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,9 +22,13 @@ import { GreenDogComponent } from './components/green-dog/green-dog.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CatsService,
+    DogsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
