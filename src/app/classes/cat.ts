@@ -6,7 +6,7 @@ export class Cat extends Pet{
 
   constructor(data: any = null) {
     super(data);
-    this.isFurry = data.isMale;
+    this.isFurry = data.isFurry;
     this.meows = data.meows;
   }
 }
