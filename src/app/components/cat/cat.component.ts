@@ -18,7 +18,7 @@ export class CatComponent implements OnInit {
     ) { }
 
   public ngOnInit(): void {
-    this.catsService.getDogs().subscribe(data => {
+    this.catsService.getCats().subscribe(data => {
     this.cats = data;
     });
   }
