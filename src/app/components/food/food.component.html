@@ -1,27 +1,24 @@
 <div class="container">
   <div class="container__button">
+    <button (click)="dogPage()">Ver perros</button>
+    <button (click)="greenDogsPage()">Ver perros verdes</button>
     <button (click)="catPage()">Ver gatos</button>
+    <button (click)="index()">Volver al inicio</button>
   </div>
+  <div class="container__title">Listado de comida de perro</div>
   <div class="container__info">
     <table class="table">
       <tr class="tr">
-        <td class="td">Celda 1</td>
-        <td class="td">Celda 2</td>
-        <td class="td">Celda 3</td>
+        <td class="td">ID</td>
+        <td class="td">NOMBRE</td>
+        <td class="td">PROTEINAS</td>
       </tr>
+    </table>
+    <table class="table" *ngFor='let food of foods'>
       <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
-      <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
-      </tr>
-      <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
+        <td class="td">{{ food.id }}</td>
+        <td class="td">{{ food.name }}</td>
+        <td class="td">{{ food.proteins }}</td>
       </tr>
     </table>
   </div>

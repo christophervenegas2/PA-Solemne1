@@ -23,8 +23,20 @@ export class GreenDogComponent implements OnInit {
     });
   }
 
+  public dogPage() {
+    this.router.navigate(['app-dog']);
+  }
+
   public foodPage() {
     this.router.navigate(['app-food']);
+  }
+
+  public catPage() {
+    this.router.navigate(['app-cat']);
+  }
+
+  public index() {
+    this.router.navigate(['']);
   }
 }
 

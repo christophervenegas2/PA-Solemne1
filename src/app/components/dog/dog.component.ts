@@ -22,8 +22,20 @@ export class DogComponent implements OnInit {
       this.dogs = data;
     });
   }
-  
+
   public greenDogsPage() {
     this.router.navigate(['app-green-dog']);
+  }
+
+  public foodPage() {
+    this.router.navigate(['app-food']);
+  }
+
+  public catPage() {
+    this.router.navigate(['app-cat']);
+  }
+  
+  public index() {
+    this.router.navigate(['']);
   }
 }

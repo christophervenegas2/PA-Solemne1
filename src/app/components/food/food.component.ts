@@ -22,8 +22,20 @@ export class FoodComponent implements OnInit {
     });
   }
 
+  public dogPage() {
+    this.router.navigate(['app-dog']);
+  }
+
+  public greenDogsPage() {
+    this.router.navigate(['app-green-dog']);
+  }
+
   public catPage() {
     this.router.navigate(['app-cat']);
+  }
+  
+  public index() {
+    this.router.navigate(['']);
   }
 }
 
