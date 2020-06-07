@@ -23,6 +23,18 @@ export class CatComponent implements OnInit {
     });
   }
   
+  public dogPage() {
+    this.router.navigate(['app-dog']);
+  }
+
+  public greenDogsPage() {
+    this.router.navigate(['app-green-dog']);
+  }
+
+  public foodPage() {
+    this.router.navigate(['app-food']);
+  }
+
   public index() {
     this.router.navigate(['']);
   }
