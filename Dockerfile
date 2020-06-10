@@ -34,6 +34,8 @@ COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
 
 RUN service nginx restart
 
-##Instrucciones
+###Instrucciones
+##Este comando levanta el docker
 #[sudo] docker build . -t evaluacion:latest 
+##Este comando levanta la pagina en el puerto 8080 (localhost:8080)
 #[sudo] docker run -d -p 8080:80 evaluacion:latest
