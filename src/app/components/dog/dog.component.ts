@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DogsService } from 'src/app/services/dogs.service';
+import { Dog } from 'src/app/classes/dog';
 
 @Component({
   selector: 'app-dog',
@@ -8,12 +10,32 @@ import { Router } from '@angular/router';
 })
 export class DogComponent implements OnInit {
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  public dogs: Dog[];
   
+  constructor(
+    private router: Router,
+    private dogsService: DogsService
+    ) { }
+
+  public ngOnInit(): void {
+    this.dogsService.getDogs().subscribe(data => {
+      this.dogs = data;
+    });
+  }
+
   public greenDogsPage() {
     this.router.navigate(['app-green-dog']);
+  }
+
+  public foodPage() {
+    this.router.navigate(['app-food']);
+  }
+
+  public catPage() {
+    this.router.navigate(['app-cat']);
+  }
+  
+  public index() {
+    this.router.navigate(['']);
   }
 }

@@ -1,42 +1,28 @@
 <div class="container">
   <div class="container__button">
-    <button (click)="index()">Volver a la página principal</button>
+    <button (click)="dogPage()">Ver perros</button>
+    <button (click)="greenDogsPage()">Ver perros verdes</button>
+    <button (click)="foodPage()">Ver comida de perros</button>
+    <button (click)="index()">Volver al inicio</button>
   </div>
+  <div class="container__title">Listado de gatos</div>
   <div class="container__info">
     <table class="table">
       <tr class="tr">
-        <td class="td">Celda 1</td>
-        <td class="td">Celda 2</td>
-        <td class="td">Celda 3</td>
+        <td class="td">ID</td>
+        <td class="td">NOMBRE</td>
+        <td class="td">COLOR</td>
+        <td class="td">PELUDO</td>
+        <td class="td">¿DICE MEOW?</td>
       </tr>
+    </table>
+    <table class="table" *ngFor='let cat of cats'>
       <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
-      <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
-      </tr>
-      <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
-      </tr>
-      <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
-      </tr>
-      <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
-      </tr>
-      <tr class="tr">
-        <td class="td">Celda 4</td>
-        <td class="td">Celda 5</td>
-        <td class="td">Celda 6</td>
+        <td class="td">{{ cat.id }}</td>
+        <td class="td">{{ cat.name }}</td>
+        <td class="td">{{ cat.color }}</td>
+        <td class="td">{{ cat.isFurry ? "SÍ": "NO"}}</td>
+        <td class="td">{{ cat.meows ? "SÍ": "NO"}}</td>
       </tr>
     </table>
   </div>
