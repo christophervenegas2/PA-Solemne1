@@ -1,28 +1,39 @@
-#Nivel 0, equipo completo de 0
+##Nivel 0, equipo completo de 0
 
 FROM ubuntu:18.04
 
 COPY . .
 
-#Nivel 1, Node.js, construir y copila Angular
-FROM node:latest as node
+##Nivel 1, Node.js, construir y copila Angular
+
+RUN apt-get update \
+&& apt-get install curl -y \
+&& curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh \
+&& bash nodesource_setup.sh \
+&& apt-get install -y nodejs -y
+RUN /bin/bash -c "source ~/.bashrc"
+RUN apt install build-essential -y
+
+##Nivel 2, instalar angular y crear la app en produccion
 
 WORKDIR /app
 
 COPY ./ /app/
 
-RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli@latest
 RUN npm install --save-dev @angular-devkit/build-angular
-RUN npm run build -- --prod
+RUN ng config -g cli.warnings.versionMismatch false
+RUN /bin/bash -c "ng build --prod"
 
-#Nivel 2, Nginx, copila la app, lista para produccion por Nginx
+##Nivel 3, Nginx, copila la app, lista para produccion por Nginx
 
-FROM nginx:latest
+RUN apt install nginx -y
 
-COPY --from=node /app/dist/evaluacion /usr/share/nginx/html
-
+COPY /dist/evaluacion /var/www/html/
 COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
 
-#Como correr Dockerfile? 
-#1.-[sudo] docker build . -t evaluacion:latest 
-#2.-[sudo] docker run -d -p 8080:80 evaluacion:latest
+RUN service nginx restart
+
+##Instrucciones
+#[sudo] docker build . -t evaluacion:latest 
+#[sudo] docker run -d -p 8080:80 evaluacion:latest
