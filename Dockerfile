@@ -32,6 +32,10 @@ RUN apt install nginx -y
 COPY /dist/evaluacion /var/www/html/
 COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
 
+EXPOSE 8080
+
+CMD ["/bin/sh", "-c", "sed -i 's/listen  .*/listen 8080;/g' /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"]
+
 RUN service nginx restart
 
 ###Instrucciones
