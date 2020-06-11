@@ -1,17 +1,17 @@
 <div class="container">
   <div class="container__button">
-    <button (click)="dogPage()">Ver perros</button>
-    <button (click)="greenDogsPage()">Ver perros verdes</button>
-    <button (click)="catPage()">Ver gatos</button>
-    <button (click)="index()">Volver al inicio</button>
+    <button (click)="dogPage()">Show dogs</button>
+    <button (click)="catPage()">Show cats</button>
+    <button (click)="greenDogsPage()">Show green dogs</button>
+    <button (click)="index()">Back to home</button>
   </div>
-  <div class="container__title">Listado de comida de perro</div>
+  <div class="container__title">Dog Food List</div>
   <div class="container__info">
     <table class="table">
       <tr class="tr">
         <td class="td">ID</td>
         <td class="td">NOMBRE</td>
-        <td class="td">PROTEINAS</td>
+        <td class="td">PROTEINS</td>
       </tr>
     </table>
     <table class="table" *ngFor='let food of foods'>

@@ -1,19 +1,19 @@
 <div class="container">
   <div class="container__button">
-    <button (click)="greenDogsPage()">Ver perros verdes</button>
-    <button (click)="foodPage()">Ver comida de perros</button>
-    <button (click)="catPage()">Ver gatos</button>
-    <button (click)="index()">Volver al inicio</button>
+    <button (click)="catPage()">Show cats</button>
+    <button (click)="greenDogsPage()">Show green dogs</button>
+    <button (click)="foodPage()">Show dog food</button>
+    <button (click)="index()">Back to home</button>
   </div>
-  <div class="container__title">Listado de perros</div>
+  <div class="container__title">Dog List</div>
   <div class="container__info">
     <table class="table">
       <tr class="tr">
         <td class="td">ID</td>
-        <td class="td">NOMBRE</td>
+        <td class="td">NAME</td>
         <td class="td">COLOR</td>
-        <td class="td">RAZA</td>
-        <td class="td">SEXO</td>
+        <td class="td">BREED</td>
+        <td class="td">GENDER</td>
       </tr>
     </table>
     <table class="table" *ngFor='let dog of dogs'>
@@ -22,7 +22,7 @@
         <td class="td">{{ dog.name }}</td>
         <td class="td">{{ dog.color }}</td>
         <td class="td">{{ dog.raza }}</td>
-        <td class="td">{{ dog.isMale ? "Macho" : "Hembra"}}</td>
+        <td class="td">{{ dog.isMale ? "Male" : "Female"}}</td>
       </tr>
     </table>
   </div>
